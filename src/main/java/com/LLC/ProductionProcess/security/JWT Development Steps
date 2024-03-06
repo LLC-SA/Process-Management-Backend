@@ -1,0 +1,10 @@
+* JWT Development Steps *
+
+1 - Add JWT Maven dependencies
+2 - Create JwtAuthenticationEntryPoint
+3 - Add Jwt properties in application properties file
+4 - Create JwtTokenProvider
+5 - Create JwtAuthenticationFilter
+6 - Create JwtAuthResponse DTO
+7 - Configure JWT in Spring Security
+8 - Change Login/SignIn REST API to return JWT Token
