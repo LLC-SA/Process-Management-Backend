@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.packing.entity;
+package com.LLC.ProductionProcess.productionProcess.packaging.entity;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
