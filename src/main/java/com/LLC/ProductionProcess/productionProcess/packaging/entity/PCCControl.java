@@ -8,32 +8,41 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Envase_control_PCC")
-public class PPCControl extends BaseDateEntity {
+@Table(name = "envase_control_PCC")
+public class PCCControl extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private LocalDate inputDate;
+    private LocalTime inputTime;
     private String packingType;
+
     // PPRO
     private Boolean vibratingSifterIntegrity;
     private Boolean magnetControl;
+
     //PCC
     private Boolean feControl;
     private Boolean noFeControl;
     private Boolean inoxControl;
     private String observations;
 
-    public PPCControl(@NotNull String createdBy, String packingType,
-                      Boolean vibratingSifterIntegrity, Boolean magnetControl,
-                      Boolean feControl, Boolean noFeControl,
-                      Boolean inoxControl, String observations) {
+    public PCCControl(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
+                      String packingType, Boolean vibratingSifterIntegrity, Boolean magnetControl,
+                      Boolean feControl, Boolean noFeControl, Boolean inoxControl, String observations) {
         super(createdBy);
+        this.inputDate = inputDate;
+        this.inputTime = inputTime;
         this.packingType = packingType;
         this.vibratingSifterIntegrity = vibratingSifterIntegrity;
         this.magnetControl = magnetControl;

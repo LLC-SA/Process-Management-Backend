@@ -8,19 +8,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Envase_control_uno")
-public class S1ProductionControl extends BaseDateEntity {
+@Table(name = "envase_control_uno")
+public class PackingControlOne extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private LocalDate inputDate;
+    private LocalTime inputTime;
     private String warehousePlace;
+
     // PRODUCT //
     private String productType;
     private Integer crystallizerBatch;
@@ -29,6 +35,7 @@ public class S1ProductionControl extends BaseDateEntity {
     private String diskQuality;
     private String visualAspectQuality;
     private String thermalStability;
+
     // BAGS //
     private Integer palletNumber;
     private Integer numberInPallet;
@@ -37,13 +44,15 @@ public class S1ProductionControl extends BaseDateEntity {
     private String operatorInPackingMachine;
     private String observations;
 
-    public S1ProductionControl(@NotNull String createdBy, String warehousePlace,
-                               String productType, Integer crystallizerBatch, Integer productBatch,
-                               Integer productInternalCode, String diskQuality, String visualAspectQuality,
-                               String thermalStability, Integer palletNumber, Integer numberInPallet,
-                               String bagType, String bagBatch, String operatorInPackingMachine,
-                               String observations) {
+    public PackingControlOne(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
+                             String warehousePlace, String productType, Integer crystallizerBatch,
+                             Integer productBatch, Integer productInternalCode, String diskQuality,
+                             String visualAspectQuality, String thermalStability, Integer palletNumber,
+                             Integer numberInPallet, String bagType, String bagBatch,
+                             String operatorInPackingMachine, String observations) {
         super(createdBy);
+        this.inputDate = inputDate;
+        this.inputTime = inputTime;
         this.warehousePlace = warehousePlace;
         this.productType = productType;
         this.crystallizerBatch = crystallizerBatch;

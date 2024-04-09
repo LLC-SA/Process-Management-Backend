@@ -2,8 +2,8 @@ package com.LLC.ProductionProcess.productionProcess.evaporation.service.impl;
 
 import com.LLC.ProductionProcess.exception.ApiException;
 import com.LLC.ProductionProcess.exception.ResourceNotFoundException;
-import com.LLC.ProductionProcess.productionProcess.evaporation.entity.crystallizer.Crystallizer;
-import com.LLC.ProductionProcess.productionProcess.evaporation.entity.crystallizer.CrystallizerItem;
+import com.LLC.ProductionProcess.productionProcess.evaporation.entity.crystallizer.EvapCrystallizer;
+import com.LLC.ProductionProcess.productionProcess.evaporation.entity.crystallizer.EvapCrystallizerItem;
 import com.LLC.ProductionProcess.productionProcess.evaporation.payload.crystallizer.CrystallizerItemDto;
 import com.LLC.ProductionProcess.productionProcess.evaporation.repository.crystallizer.CrystallizerItemRepository;
 import com.LLC.ProductionProcess.productionProcess.evaporation.repository.crystallizer.CrystallizerRepository;
@@ -28,9 +28,9 @@ public class CrystallizerItemImpl implements CrystallizerItemService {
 
     @Override
     public List<CrystallizerItemDto> getDataByCrystallizerId(Long crystallizerId) {
-        List<CrystallizerItem> crystallizerItems = crystallizerItemRepository.findByCrystallizerId(crystallizerId);
+        List<EvapCrystallizerItem> evapCrystallizerItems = crystallizerItemRepository.findByCrystallizerId(crystallizerId);
 
-        List<CrystallizerItemDto> crystallizerDetailsDto = crystallizerItems.stream()
+        List<CrystallizerItemDto> crystallizerDetailsDto = evapCrystallizerItems.stream()
                 .map(detail -> DtoMapper.entityToDto(detail, CrystallizerItemDto.class)).toList();
 
         return crystallizerDetailsDto;
@@ -38,39 +38,39 @@ public class CrystallizerItemImpl implements CrystallizerItemService {
 
     @Override
     public CrystallizerItemDto createData(Long crystallizerId, CrystallizerItemDto crystallizerData) {
-        CrystallizerItem crystallizerItem = DtoMapper.dtoToEntity(crystallizerData, CrystallizerItem.class);
+        EvapCrystallizerItem evapCrystallizerItem = DtoMapper.dtoToEntity(crystallizerData, EvapCrystallizerItem.class);
 
         // Retrieve the detail by the crystallizer - id
-        Crystallizer crystallizer = retrieveCrystallizerById(crystallizerId);
+        EvapCrystallizer evapCrystallizer = retrieveCrystallizerById(crystallizerId);
 
         // Set the crystallizer-detail to the crystallizer --> ManyToOne relationship bidirectional
-        crystallizerItem.setCrystallizer(crystallizer);
+        evapCrystallizerItem.setEvapCrystallizer(evapCrystallizer);
 
         // Save the detail into de database
-        CrystallizerItem savedCrystallizerItem = crystallizerItemRepository.save(crystallizerItem);
+        EvapCrystallizerItem savedEvapCrystallizerItem = crystallizerItemRepository.save(evapCrystallizerItem);
 
-        return DtoMapper.entityToDto(savedCrystallizerItem, CrystallizerItemDto.class);
+        return DtoMapper.entityToDto(savedEvapCrystallizerItem, CrystallizerItemDto.class);
     }
 
     @Override
     public CrystallizerItemDto updateData(Long crystallizerId, Long crystallizerDetailId, CrystallizerItemDto crystallizerItemDto) {
         // Retrieve the "One"
-        Crystallizer crystallizer = retrieveCrystallizerById(crystallizerId);
+        EvapCrystallizer evapCrystallizer = retrieveCrystallizerById(crystallizerId);
 
         // Retrieve the "Many" (the for the update)
-        CrystallizerItem crystallizerItem = retrieveCrystallizerDetailById(crystallizerDetailId);
+        EvapCrystallizerItem evapCrystallizerItem = retrieveCrystallizerDetailById(crystallizerDetailId);
 
         // Check if the detail belongs to the crystallizer
-        if (!crystallizerItem.getCrystallizer().getId().equals(crystallizer.getId())) {
+        if (!evapCrystallizerItem.getEvapCrystallizer().getId().equals(evapCrystallizer.getId())) {
             throw new ApiException(HttpStatus.BAD_REQUEST, "The detail does not belong to the crystallizer");
         }
 
         // Set the updated data
-        crystallizerItem.setPasteurizationTemperature(crystallizerItemDto.getPasteurizationTemperature());
-        crystallizerItem.setCoolingTemperature(crystallizerItemDto.getCoolingTemperature());
-        crystallizerItem.setProductConcentration(crystallizerItemDto.getProductConcentration());
+        evapCrystallizerItem.setPasteurizationTemperature(crystallizerItemDto.getPasteurizationTemperature());
+        evapCrystallizerItem.setCoolingTemperature(crystallizerItemDto.getCoolingTemperature());
+        evapCrystallizerItem.setProductConcentration(crystallizerItemDto.getProductConcentration());
 
-        CrystallizerItem updatedCrystallizer = crystallizerItemRepository.save(crystallizerItem);
+        EvapCrystallizerItem updatedCrystallizer = crystallizerItemRepository.save(evapCrystallizerItem);
         return DtoMapper.entityToDto(updatedCrystallizer, CrystallizerItemDto.class);
     }
 
@@ -78,17 +78,17 @@ public class CrystallizerItemImpl implements CrystallizerItemService {
     /* PRIVATE METHODS */
     /* ################################################################################################################# */
 
-    private Crystallizer retrieveCrystallizerById(Long crystallizerId) {
-        Crystallizer crystallizer = crystallizerRepository.findById(crystallizerId)
+    private EvapCrystallizer retrieveCrystallizerById(Long crystallizerId) {
+        EvapCrystallizer evapCrystallizer = crystallizerRepository.findById(crystallizerId)
                 .orElseThrow(() -> new ResourceNotFoundException("crystallizer", "crystallizerId", crystallizerId));
 
-        return crystallizer;
+        return evapCrystallizer;
     }
 
-    private CrystallizerItem retrieveCrystallizerDetailById(Long crystallizerDetailId) {
-        CrystallizerItem crystallizerItem = crystallizerItemRepository.findById(crystallizerDetailId)
+    private EvapCrystallizerItem retrieveCrystallizerDetailById(Long crystallizerDetailId) {
+        EvapCrystallizerItem evapCrystallizerItem = crystallizerItemRepository.findById(crystallizerDetailId)
                 .orElseThrow(() -> new ResourceNotFoundException("crystallizer_detail", "crystallizerDetailId", crystallizerDetailId));
 
-        return crystallizerItem;
+        return evapCrystallizerItem;
     }
 }

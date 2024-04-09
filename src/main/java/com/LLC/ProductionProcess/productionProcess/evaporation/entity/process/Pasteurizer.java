@@ -11,13 +11,13 @@ import org.jetbrains.annotations.NotNull;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "Evaporador_pasteurizador")
+@Table(name = "evaporador_pasteurizador")
 public class Pasteurizer extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     private String feedOrigin;
     private Double feedPh;
     private Double feedTemp;

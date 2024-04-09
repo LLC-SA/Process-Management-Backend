@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "Evaporador_proceso")
+@Table(name = "evaporador_proceso")
 public class EvaporatorProcess extends BaseDateEntity {
 
     @Id

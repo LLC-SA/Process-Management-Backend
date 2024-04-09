@@ -7,28 +7,33 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "Cristalizadores_detalles")
-public class CrystallizerItem extends BaseDateEntity {
+@Table(name = "evaporador_llenado_cristalizador_detalles")
+public class EvapCrystallizerItem extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private LocalTime inputTime;
     private Double pasteurizationTemperature;
     private Double productConcentration;
     private Integer coolingTemperature;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "evaporation_crystallizer_id")
-    private Crystallizer crystallizer;
+    private EvapCrystallizer evapCrystallizer;
 
-    public CrystallizerItem(@NotNull String createdBy, Double pasteurizationTemperature,
-                            Double productConcentration, Integer coolingTemperature) {
+    public EvapCrystallizerItem(@NotNull String createdBy, LocalTime inputTime,
+                                Double pasteurizationTemperature, Double productConcentration,
+                                Integer coolingTemperature) {
         super(createdBy);
+        this.inputTime = inputTime;
         this.pasteurizationTemperature = pasteurizationTemperature;
         this.productConcentration = productConcentration;
         this.coolingTemperature = coolingTemperature;

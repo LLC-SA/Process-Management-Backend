@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,15 +22,21 @@ public class SiloCIP extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private LocalDate inputDate;
+    private LocalTime inputTime;
     private String cipType;
     private Double cipConcentration;
     private Integer cipTemperature;
     private Integer cipTime;
     private String observations;
 
-    public SiloCIP(@NotNull String createdBy, String cipType, Double cipConcentration,
-                   Integer cipTemperature, Integer cipTime, String observations) {
+    public SiloCIP(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
+                   String cipType, Double cipConcentration, Integer cipTemperature,
+                   Integer cipTime, String observations) {
         super(createdBy);
+        this.inputDate = inputDate;
+        this.inputTime = inputTime;
         this.cipType = cipType;
         this.cipConcentration = cipConcentration;
         this.cipTemperature = cipTemperature;

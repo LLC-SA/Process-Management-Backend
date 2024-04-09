@@ -1,11 +1,11 @@
 package com.LLC.ProductionProcess.productionProcess.evaporation.repository.crystallizer;
 
-import com.LLC.ProductionProcess.productionProcess.evaporation.entity.crystallizer.CrystallizerItem;
+import com.LLC.ProductionProcess.productionProcess.evaporation.entity.crystallizer.EvapCrystallizerItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CrystallizerItemRepository extends JpaRepository<CrystallizerItem, Long> {
+public interface CrystallizerItemRepository extends JpaRepository<EvapCrystallizerItem, Long> {
 
-    List<CrystallizerItem> findByCrystallizerId(Long crystallizerId);
+    List<EvapCrystallizerItem> findByCrystallizerId(Long crystallizerId);
 }

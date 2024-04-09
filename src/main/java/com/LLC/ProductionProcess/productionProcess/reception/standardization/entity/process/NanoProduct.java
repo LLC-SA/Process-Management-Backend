@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.standardization.entity.process;
+package com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.process;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

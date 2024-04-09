@@ -1,7 +1,7 @@
 package com.LLC.ProductionProcess.productionProcess.evaporation.service.impl;
 
 import com.LLC.ProductionProcess.exception.ResourceNotFoundException;
-import com.LLC.ProductionProcess.productionProcess.evaporation.entity.crystallizer.Crystallizer;
+import com.LLC.ProductionProcess.productionProcess.evaporation.entity.crystallizer.EvapCrystallizer;
 import com.LLC.ProductionProcess.productionProcess.evaporation.payload.crystallizer.CrystallizerDto;
 import com.LLC.ProductionProcess.productionProcess.evaporation.repository.crystallizer.CrystallizerRepository;
 import com.LLC.ProductionProcess.productionProcess.evaporation.service.intf.CrystallizerService;
@@ -22,26 +22,26 @@ public class CrystallizerServiceImpl implements CrystallizerService {
 
     @Override
     public CrystallizerDto getDataById(Long id) {
-        Crystallizer crystallizer = retrieveCrystallizerById(id);
-        CrystallizerDto crystallizerDto = DtoMapper.entityToDto(crystallizer, CrystallizerDto.class);
+        EvapCrystallizer evapCrystallizer = retrieveCrystallizerById(id);
+        CrystallizerDto crystallizerDto = DtoMapper.entityToDto(evapCrystallizer, CrystallizerDto.class);
 //
         return crystallizerDto;
     }
 
     @Override
     public List<CrystallizerDto> getAllDataByDate(String date) {
-        List<Crystallizer> crystallizers = crystallizerRepository.findAllByCreatedDate(LocalDate.parse(date));
-        List<CrystallizerDto> crystallizersdDto = crystallizers.stream().map(crystallizer -> DtoMapper.entityToDto(crystallizer, CrystallizerDto.class)).toList();
+        List<EvapCrystallizer> evapCrystallizers = crystallizerRepository.findAllByCreatedDate(LocalDate.parse(date));
+        List<CrystallizerDto> crystallizersdDto = evapCrystallizers.stream().map(evapCrystallizer -> DtoMapper.entityToDto(evapCrystallizer, CrystallizerDto.class)).toList();
 
         return crystallizersdDto;
     }
 
     @Override
     public CrystallizerDto createData(CrystallizerDto dto) {
-        Crystallizer crystallizer = DtoMapper.dtoToEntity(dto, Crystallizer.class);
-        Crystallizer crystallizerResponse = crystallizerRepository.save(crystallizer);
+        EvapCrystallizer evapCrystallizer = DtoMapper.dtoToEntity(dto, EvapCrystallizer.class);
+        EvapCrystallizer evapCrystallizerResponse = crystallizerRepository.save(evapCrystallizer);
 //
-        return DtoMapper.dtoToEntity(crystallizerResponse, CrystallizerDto.class);
+        return DtoMapper.dtoToEntity(evapCrystallizerResponse, CrystallizerDto.class);
     }
 
     @Override
@@ -51,19 +51,19 @@ public class CrystallizerServiceImpl implements CrystallizerService {
 
     @Override
     public void deleteDataById(Long id) {
-        Crystallizer crystallizer = retrieveCrystallizerById(id);
+        EvapCrystallizer evapCrystallizer = retrieveCrystallizerById(id);
         crystallizerRepository.deleteById(id);
     }
 
     /* ################################################################################################################# */
     /* PRIVATE METHODS */
     /* ################################################################################################################# */
-    private Crystallizer retrieveCrystallizerById(Long id) {
+    private EvapCrystallizer retrieveCrystallizerById(Long id) {
 
-        Crystallizer crystallizerData = crystallizerRepository.findById(id).orElseThrow(
+        EvapCrystallizer evapCrystallizerData = crystallizerRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Crystallizer data", "id", id));
 
-        return crystallizerData;
+        return evapCrystallizerData;
     }
 }
 

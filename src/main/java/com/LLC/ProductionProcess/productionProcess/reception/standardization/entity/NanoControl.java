@@ -1,9 +1,8 @@
-package com.LLC.ProductionProcess.productionProcess.standardization.entity;
+package com.LLC.ProductionProcess.productionProcess.reception.standardization.entity;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
-import com.LLC.ProductionProcess.productionProcess.standardization.entity.process.NanoProcess;
-import com.LLC.ProductionProcess.productionProcess.standardization.entity.process.NanoProduct;
-import com.LLC.ProductionProcess.productionProcess.standardization.entity.process.cream_separator.CreamSeparatorProcess;
+import com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.process.NanoProcess;
+import com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.process.NanoProduct;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,10 +29,6 @@ public class NanoControl extends BaseDateEntity {
     private LocalDate inputDate;
     private String processType;
     private String processDescription;
-
-    @OneToOne
-    @JoinColumn(name = "cream_separator_process_id")
-    CreamSeparatorProcess creamSeparatorProcess;
 
     @OneToOne
     @JoinColumn(name = "nano_process_id")

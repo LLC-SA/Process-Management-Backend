@@ -14,7 +14,7 @@ import java.time.LocalTime;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "Evaporador_control")
+@Table(name = "evaporador_control")
 public class EvaporationControl extends BaseDateEntity {
 
     @Id

@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.standardization.entity.process.cream_separator;
+package com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.process.cream_separator;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
@@ -8,18 +8,23 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Desnatadora_proceso")
+@Table(name = "desnatadora_proceso")
 public class CreamSeparatorProcess extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private LocalDate inputDate;
+    private LocalTime inputTime;
     private Integer productionHours;
     private String feedOrigin;
     private Integer feedContainerLevel;
@@ -29,10 +34,13 @@ public class CreamSeparatorProcess extends BaseDateEntity {
     private Integer feedTemperature;
     private Boolean isSeparatorDischargeWorking;
 
-    public CreamSeparatorProcess(@NotNull String createdBy, Integer productionHours, String feedOrigin,
-                                 Integer feedContainerLevel, Integer feedFlow, String feedDestination,
-                                 Double feedBackPressure, Integer feedTemperature, Boolean isSeparatorDischargeWorking) {
+    public CreamSeparatorProcess(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
+                                 Integer productionHours, String feedOrigin, Integer feedContainerLevel,
+                                 Integer feedFlow, String feedDestination, Double feedBackPressure,
+                                 Integer feedTemperature, Boolean isSeparatorDischargeWorking) {
         super(createdBy);
+        this.inputDate = inputDate;
+        this.inputTime = inputTime;
         this.productionHours = productionHours;
         this.feedOrigin = feedOrigin;
         this.feedContainerLevel = feedContainerLevel;

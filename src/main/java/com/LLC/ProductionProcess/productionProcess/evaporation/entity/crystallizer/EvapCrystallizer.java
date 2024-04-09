@@ -7,19 +7,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "Cristalizadores_estado")
-public class Crystallizer extends BaseDateEntity {
+@Table(name = "evaporador_llenado_cristalizador")
+public class EvapCrystallizer extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private LocalDate inputDate;
     private Integer batchNumber;
     private String crystallizerNumber;
     private String checkedOrDisinfected;
@@ -30,15 +31,15 @@ public class Crystallizer extends BaseDateEntity {
     private Integer acidity;
     private Integer crystallizerVolume;
 
-    @OneToMany(mappedBy = "crystallizer", cascade = CascadeType.ALL)
-    private List<CrystallizerItem> crystallizerItems;
+    @OneToMany(mappedBy = "evapCrystallizer", cascade = CascadeType.ALL)
+    private List<EvapCrystallizerItem> evapCrystallizerItems;
 
-    public Crystallizer(@NotNull String createdBy, Integer batchNumber,
-                        String crystallizerNumber, String checkedOrDisinfected,
-                        String productType, String d90BatchId,
-                        String crystallizerOrigin, Double concentratepH,
-                        Integer acidity, Integer crystallizerVolume) {
+    public EvapCrystallizer(@NotNull String createdBy, LocalDate inputDate, Integer batchNumber,
+                            String crystallizerNumber, String checkedOrDisinfected,
+                            String productType, String d90BatchId, String crystallizerOrigin,
+                            Double concentratepH, Integer acidity, Integer crystallizerVolume) {
         super(createdBy);
+        this.inputDate = inputDate;
         this.batchNumber = batchNumber;
         this.crystallizerNumber = crystallizerNumber;
         this.checkedOrDisinfected = checkedOrDisinfected;
