@@ -1,7 +1,7 @@
 package com.LLC.ProductionProcess;
 
 import com.LLC.ProductionProcess.generics.service.ProcessService;
-import com.LLC.ProductionProcess.productionProcess.evaporation.payload.crystallizer.EvapCrystallizerDto;
+import com.LLC.ProductionProcess.productionProcess.evaporation.payload.crystallizer.CrystDto;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +10,9 @@ import java.time.LocalDate;
 @Component
 public class AppCommandLineRunner implements CommandLineRunner {
 
-    private ProcessService<EvapCrystallizerDto> crystallizerService;
+    private ProcessService<CrystDto> crystallizerService;
 
-    public AppCommandLineRunner(ProcessService<EvapCrystallizerDto> crystallizerService) {
+    public AppCommandLineRunner(ProcessService<CrystDto> crystallizerService) {
         this.crystallizerService = crystallizerService;
     }
 

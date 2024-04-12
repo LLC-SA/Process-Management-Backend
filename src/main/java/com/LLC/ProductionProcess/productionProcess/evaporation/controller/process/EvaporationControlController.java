@@ -1,7 +1,7 @@
 package com.LLC.ProductionProcess.productionProcess.evaporation.controller.process;
 
-import com.LLC.ProductionProcess.productionProcess.evaporation.payload.process.EvaporationControlDto;
-import com.LLC.ProductionProcess.productionProcess.evaporation.service.intf.EvaporationControlService;
+import com.LLC.ProductionProcess.productionProcess.evaporation.payload.process.EvapControlDto;
+import com.LLC.ProductionProcess.productionProcess.evaporation.service.intf.EvapControlService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,34 +12,34 @@ import java.util.List;
 @RestController("/evaporation")
 public class EvaporationControlController {
 
-    private EvaporationControlService evapControlService;
+    private EvapControlService evapControlService;
 
-    public EvaporationControlController(EvaporationControlService evapControlService) {
+    public EvaporationControlController(EvapControlService evapControlService) {
         this.evapControlService = evapControlService;
     }
 
     @GetMapping("/control/{id}")
-    public EvaporationControlDto getEvaporationControlDataById(@PathVariable Long id) {
+    public EvapControlDto getEvaporationControlDataById(@PathVariable Long id) {
         return evapControlService.getDataById(id);
     }
 
     @GetMapping("/control/date")
-    public List<EvaporationControlDto> getEvaporationControlDataByDate(@RequestParam(name = "date") String date) {
+    public List<EvapControlDto> getEvaporationControlDataByDate(@RequestParam(name = "date") String date) {
         return evapControlService.getAllDataByDate(date);
     }
 
     @PostMapping("/control")
-    public ResponseEntity<EvaporationControlDto> createEvaporationControlData(@RequestBody EvaporationControlDto evaporationControlDto) {
-        EvaporationControlDto createdEvapControlData = evapControlService.createData(evaporationControlDto);
+    public ResponseEntity<EvapControlDto> createEvaporationControlData(@RequestBody EvapControlDto evapControlDto) {
+        EvapControlDto createdEvapControlData = evapControlService.createData(evapControlDto);
 
         return new ResponseEntity<>(createdEvapControlData, HttpStatus.CREATED);
     }
 
 
     @PutMapping("/control/{id}")
-    public ResponseEntity<EvaporationControlDto> updateEvaporationControlData(@PathVariable Long id, @RequestBody EvaporationControlDto evapDto) {
+    public ResponseEntity<EvapControlDto> updateEvaporationControlData(@PathVariable Long id, @RequestBody EvapControlDto evapDto) {
 
-        EvaporationControlDto updatedEvapControl = evapControlService.updateData(evapDto, id);
+        EvapControlDto updatedEvapControl = evapControlService.updateData(evapDto, id);
         return new ResponseEntity<>(updatedEvapControl, HttpStatus.OK);
     }
 }

@@ -1,16 +1,18 @@
 package com.LLC.ProductionProcess.productionProcess.evaporation.service.impl;
 
 import com.LLC.ProductionProcess.exception.ResourceNotFoundException;
-import com.LLC.ProductionProcess.productionProcess.evaporation.entity.process.EvaporationControl;
-import com.LLC.ProductionProcess.productionProcess.evaporation.payload.process.EvaporationControlDto;
+import com.LLC.ProductionProcess.productionProcess.evaporation.entity.process.EvapControl;
+import com.LLC.ProductionProcess.productionProcess.evaporation.payload.process.EvapControlDto;
 import com.LLC.ProductionProcess.productionProcess.evaporation.repository.process.EvapControlRepository;
-import com.LLC.ProductionProcess.productionProcess.evaporation.service.intf.EvaporationControlService;
+import com.LLC.ProductionProcess.productionProcess.evaporation.service.intf.EvapControlService;
 import com.LLC.ProductionProcess.utils.DtoMapper;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class EvapControlServiceImpl implements EvaporationControlService {
+@Service
+public class EvapControlServiceImpl implements EvapControlService {
 
     EvapControlRepository evapControlRepository;
 
@@ -19,29 +21,29 @@ public class EvapControlServiceImpl implements EvaporationControlService {
     }
 
     @Override
-    public EvaporationControlDto getDataById(Long id) {
-        EvaporationControl evaporationControl = retrieveEvapControlById(id);
+    public EvapControlDto getDataById(Long id) {
+        EvapControl evapControl = retrieveEvapControlById(id);
 
-        return DtoMapper.entityToDto(evaporationControl, EvaporationControlDto.class);
+        return DtoMapper.entityToDto(evapControl, EvapControlDto.class);
     }
 
     @Override
-    public List<EvaporationControlDto> getAllDataByDate(String date) {
-        List<EvaporationControl> evapControlList = evapControlRepository.getAllEvapControlDataByDate(LocalDate.parse(date));
+    public List<EvapControlDto> getAllDataByDate(String date) {
+        List<EvapControl> evapControlList = evapControlRepository.getAllEvapControlDataByDate(LocalDate.parse(date));
 
-        return evapControlList.stream().map(data -> DtoMapper.entityToDto(data, EvaporationControlDto.class)).toList();
+        return evapControlList.stream().map(data -> DtoMapper.entityToDto(data, EvapControlDto.class)).toList();
     }
 
     @Override
-    public EvaporationControlDto createData(EvaporationControlDto evapDto) {
-        EvaporationControl evapControlData = DtoMapper.dtoToEntity(evapDto, EvaporationControl.class);
-        EvaporationControl evapControlResponse = evapControlRepository.save(evapControlData);
+    public EvapControlDto createData(EvapControlDto evapDto) {
+        EvapControl evapControlData = DtoMapper.dtoToEntity(evapDto, EvapControl.class);
+        EvapControl evapControlResponse = evapControlRepository.save(evapControlData);
 //
-        return DtoMapper.dtoToEntity(evapControlResponse, EvaporationControlDto.class);
+        return DtoMapper.dtoToEntity(evapControlResponse, EvapControlDto.class);
     }
 
     @Override
-    public EvaporationControlDto updateData(EvaporationControlDto dto, Long id) {
+    public EvapControlDto updateData(EvapControlDto dto, Long id) {
         return null;
     }
 
@@ -50,7 +52,7 @@ public class EvapControlServiceImpl implements EvaporationControlService {
         evapControlRepository.deleteById(id);
     }
 
-    private EvaporationControl retrieveEvapControlById(Long id) {
+    private EvapControl retrieveEvapControlById(Long id) {
         return evapControlRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Evaporator control data", "id", id));
     }
 }
