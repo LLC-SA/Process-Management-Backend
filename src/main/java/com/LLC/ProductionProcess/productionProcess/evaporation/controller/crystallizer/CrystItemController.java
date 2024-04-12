@@ -23,7 +23,7 @@ public class CrystItemController {
         return crystItemService.getDataByCrystallizerId(crytallizerId);
     }
 
-    @PostMapping("/item")
+    @PostMapping("/items")
     public ResponseEntity<CrystItemDto> createCrystallizerItem(@PathVariable Long crystallizerId,
                                                                @RequestBody CrystItemDto crystItemDto) {
 
