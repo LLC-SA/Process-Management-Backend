@@ -16,23 +16,42 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "cristalizador_estado")
 public class CrystallizerState extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "cristalizador_número")
     private String crystallizerNumber;
+
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "volumen")
     private Integer crystallizerVolume;
+
+    @Column(name = "tipo_producto")
     private String productType;
+
+    @Column(name = "batch")
     private Integer batchNumber;
+
+    @Column(name = "concentración")
     private Integer concentration;
+
+    @Column(name = "temperatura")
     private Integer temperature;
+
+    @Column(name = "pH")
     private Double pH;
+
+    @Column(name = "acidez")
     private Integer acidity;
 
     // Spray
+    @Column(name = "solidos_totales")
     private Double totalSolids;
 
     public CrystallizerState(@NotNull String createdBy, LocalDate inputDate, String crystallizerNumber,

@@ -21,11 +21,22 @@ public class EvaporationControl extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "origen_proceso")
     private String processOrigin;
+
+    @Column(name = "descripción_proceso")
     private String processDescription;
+
+    @Column(name = "destino_proceso")
     private String processDestination;
+
+    @Column(name = "caudal")
     private Integer flowValue;
 
     @OneToOne

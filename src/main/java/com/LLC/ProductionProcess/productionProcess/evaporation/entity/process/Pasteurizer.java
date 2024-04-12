@@ -17,14 +17,29 @@ public class Pasteurizer extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
+    @Column(name = "alimentación")
     private String feedOrigin;
+
+    @Column(name = "pH")
     private Double feedPh;
+
+    @Column(name = "temperatura_alimentación")
     private Double feedTemp;
+
+    @Column(name = "volumen_alimentación")
     private Integer feedContainerLevel;
+
+    @Column(name = "concentración_alimentación")
     private Double feedSolids;
+
+    @Column(name = "temperatura_agua_caliente")
     private Integer hotWaterTemp;
+
+    @Column(name = "temperatura_pasteurización")
     private Integer pasteurizationTemp;
+
+    @Column(name = "caudal")
     private Integer flowRate;
 
     public Pasteurizer(@NotNull String createdBy, String feedOrigin, Double feedPh,

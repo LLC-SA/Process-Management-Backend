@@ -17,16 +17,37 @@ public class EvaporatorProcess extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "temperatura_efecto_uno")
     private Integer effectOneTemp;
+
+    @Column(name = "temperatura_efecto_dos")
     private Integer effectTwoTemp;
+
+    @Column(name = "temperatura_efecto_tres")
     private Integer effectThreeTemp;
+
+    @Column(name = "presión_caldera")
     private Double boilerSteamPressure;
+
+    @Column(name = "presión_termocompresor")
     private Double evaporatorSteamPressure;
+
+    @Column(name = "temperatura_ingreso_torre")
     private Integer coolingTowerIn;
+
+    @Column(name = "temperatura_egreso_torre")
     private Integer coolingTowerOut;
+
+    @Column(name = "temperatura_flash")
     private Integer flashTemp;
+
+    @Column(name = "vacío")
     private Integer vacuumPressure;
+
+    @Column(name = "destino_producto")
     private String productOutput;
+
+    @Column(name = "solidos_producto")
     private Double productSolids;
 
     public EvaporatorProcess(String createdBy, Integer effectOneTemp, Integer effectTwoTemp,

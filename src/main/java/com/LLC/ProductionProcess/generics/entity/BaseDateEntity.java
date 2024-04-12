@@ -30,6 +30,7 @@ public abstract class BaseDateEntity {
     private LocalDateTime updatedAt;
 
     @NotNull
+    @Column(name = "responsable")
     private String createdBy;
 
     @PrePersist

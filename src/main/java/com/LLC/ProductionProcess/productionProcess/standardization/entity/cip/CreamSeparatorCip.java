@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.cip;
+package com.LLC.ProductionProcess.productionProcess.standardization.entity.cip;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
@@ -16,31 +16,40 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "cip_nanofiltración")
-public class NanoCip extends BaseDateEntity {
+@Table(name = "cip_desnatadora")
+public class CreamSeparatorCip extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha")
     private LocalDate inputDate;
-    private LocalTime inputTime;
-    private String cipType;
-    private Integer cipTemperature;
-    private Integer cipTime;
-    private Double cipPh;
-    private Integer cipPressure;
 
-    public NanoCip(@NotNull String createdBy, LocalDate inputDate,
-                   LocalTime inputTime, String cipType, Integer cipTemperature,
-                   Integer cipTime, Double cipPh, Integer cipPressure) {
+    @Column(name = "hora")
+    private LocalTime inputTime;
+
+    @Column(name = "tipo")
+    private String cipType;
+
+    @Column(name = "concentración")
+    private Double cipConcentration;
+
+    @Column(name = "temperatura")
+    private Integer cipTemperature;
+
+    @Column(name = "tiempo")
+    private Integer cipTime;
+
+    public CreamSeparatorCip(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime, String cipType,
+                             Double cipConcentration, Integer cipTemperature, Integer cipTime) {
         super(createdBy);
         this.inputDate = inputDate;
         this.inputTime = inputTime;
         this.cipType = cipType;
+        this.cipConcentration = cipConcentration;
         this.cipTemperature = cipTemperature;
         this.cipTime = cipTime;
-        this.cipPh = cipPh;
-        this.cipPressure = cipPressure;
     }
 }
+

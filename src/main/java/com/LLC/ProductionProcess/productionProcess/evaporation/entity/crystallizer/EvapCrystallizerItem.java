@@ -20,9 +20,16 @@ public class EvapCrystallizerItem extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "temperatura_pasteurización")
     private Double pasteurizationTemperature;
+
+    @Column(name = "concentración_salida")
     private Double productConcentration;
+
+    @Column(name = "temperatura_enfriamiento")
     private Integer coolingTemperature;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -20,15 +20,35 @@ public class EvapCrystallizer extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "batch")
     private Integer batchNumber;
+
+    @Column(name = "cristalizador_número")
     private String crystallizerNumber;
+
+    @Column(name = "revisado_desinfectado")
     private String checkedOrDisinfected;
+
+    @Column(name = "tipo_producto")
     private String productType;
+
+    @Column(name = "lotes_d90")
     private String d90BatchId;
+
+    @Column(name = "origen")
     private String crystallizerOrigin;
+
+    @Column(name = "pH")
     private Double concentratepH;
+
+    @Column(name = "acidez")
     private Integer acidity;
+
+    @Column(name = "volumen")
     private Integer crystallizerVolume;
 
     @OneToMany(mappedBy = "evapCrystallizer", cascade = CascadeType.ALL)

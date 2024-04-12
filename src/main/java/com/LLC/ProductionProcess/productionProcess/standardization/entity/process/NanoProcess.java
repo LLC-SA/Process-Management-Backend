@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.process;
+package com.LLC.ProductionProcess.productionProcess.standardization.entity.process;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
@@ -20,29 +20,74 @@ public class NanoProcess extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     /* FEED */
+    @Column(name = "horas_producción")
     private Integer productionHours;
+
+    @Column(name = "alimentación")
     private String feedOrigin;
+
+    @Column(name = "volumen")
     private Integer feedContainerLevel;
+
+    @Column(name = "caudal")
     private Integer feedFlow;
+
+    @Column(name = "pH")
     private Integer feedPh;
+
+    @Column(name = "concentración_alimentación")
     private Double feedConcentration;
+
+    @Column(name = "turbidez")
     private Integer feedTurbidity;
+
+    @Column(name = "temperatura")
     private Integer feedTemperature;
+
     /* PROCESS */
+    @Column(name = "presión_filtros_ingreso")
     private Double inFilterPressure;
+
+    @Column(name = "presión_filtros_egreso")
     private Double outFilterPressure;
+
+    @Column(name = "presión_alimentación")
     private Double inletPressure;
+
+    @Column(name = "presión_etapa_uno")
     private Double firstStepPressure;
+
+    @Column(name = "presión_etapa_dos")
     private Double secondStepPressure;
+
+    @Column(name = "bap_potencia")
     private Integer bapPowerPercentage;
+
+    @Column(name = "flujo_permeado_etapa_1")
     private Integer firstStepPermeateFlow;
+
+    @Column(name = "concentración_permeado_etapa_1")
     private Double firstStepPermeateConcentration;
+
+    @Column(name = "flujo_permeado_etapa_2")
     private Integer secondStepPermeateFlow;
+
+    @Column(name = "concentración_permeado_etapa_2")
     private Double secondStepPermeateConcentration;
+
+    @Column(name = "flujo_permeado_etapa_3")
     private Integer thirdStepPermeateFlow;
+
+    @Column(name = "concentración_permeado_etapa_3")
     private Double thirdStepPermeateConcentration;
+
+    @Column(name = "flujo_permeado_etapa_4")
     private Integer fourthStepPermeateFlow;
+
+    @Column(name = "concentración_permeado_etapa_4")
     private Double fourthStepPermeateConcentration;
+
+    @Column(name = "concentración_permeado_promedio")
     private Double finalPermeateConcentration;
 
     public NanoProcess(@NotNull String createdBy, Integer productionHours, String feedOrigin,

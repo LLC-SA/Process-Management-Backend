@@ -16,19 +16,31 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "CIP_silos")
+@Table(name = "cip_silos")
 public class SiloCIP extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "tipo")
     private String cipType;
+
+    @Column(name = "concentración")
     private Double cipConcentration;
+
+    @Column(name = "temperatura")
     private Integer cipTemperature;
+
+    @Column(name = "cip_tiempo")
     private Integer cipTime;
+
+    @Column(name = "observación")
     private String observations;
 
     public SiloCIP(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,

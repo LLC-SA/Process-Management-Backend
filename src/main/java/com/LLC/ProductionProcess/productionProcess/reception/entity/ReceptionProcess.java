@@ -22,33 +22,69 @@ public class ReceptionProcess extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "fecha")
     private LocalDate inputDate;
 
     // TRUCK
+    @Column(name = "proveedor")
     private String supplier;
+
+    @Column(name = "remito")
     private Integer dispatchNumber;
+
+    @Column(name = "transporte")
     private String shipmentCompany;
+
+    @Column(name = "chofer")
     private String trucker;
+
+    @Column(name = "patente")
     private String truckPatent;
+
+    @Column(name = "hora_llegada")
     private LocalTime arrivedTime;
+
+    @Column(name = "precintos")
     private Boolean hasSeals;
+
+    @Column(name = "limpieza")
     private Boolean isCleaned;
 
     // VOLUME
+    @Column(name = "volumen_descargado")
     private Integer dischargedVolume;
 
     // RAW MATERIAL
+    @Column(name = "tipo_producto")
     private String productType;
+
+    @Column(name = "concentración")
     private Double concentration;
+
+    @Column(name = "temperatura")
     private Double temperature;
+
+    @Column(name = "pH")
     private Double pH;
+
+    @Column(name = "acidez")
     private Integer acidity;
+
+    @Column(name = "densidad")
     private Double density;
+
+    @Column(name = "antibióticos")
     private Boolean hasAntibiotics;
+
+    @Column(name = "peróxidos")
     private Integer peroxideValue;
+
+    @Column(name = "silo_destino")
     private String siloDestination;
 
     // OTHERS
+    @Column(name = "observación")
     private String observations;
 
     public ReceptionProcess(@NotNull String createdBy, LocalDate inputDate, String supplier, Integer dispatchNumber,

@@ -20,8 +20,13 @@ public class CoolingTower extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "sales_concentración")
     private Integer saltConcentration;
+
+    @Column(name = "cambio_de_agua")
     private Boolean isWaterChanged;
 
     public CoolingTower(@NotNull String createdBy, LocalDate inputDate,

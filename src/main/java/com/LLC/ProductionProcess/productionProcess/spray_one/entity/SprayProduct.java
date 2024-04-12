@@ -13,17 +13,28 @@ import org.jetbrains.annotations.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "spray_producto")
+@Table(name = "spray_1_producto")
 public class SprayProduct extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "tipo_producto")
     private Integer productGenerated;
+
+    @Column(name = "disco")
     private String diskQuality;
+
+    @Column(name = "aspecto_visual")
     private String visualAspectQuality;
+
+    @Column(name = "humedad_polvo")
     private Double productHumidity;
+
+    @Column(name = "pH")
     private Double productPh;
+
+    @Column(name = "estabilidad_térmica")
     private String thermalStability;
 
     public SprayProduct(@NotNull String createdBy, Integer productGenerated,

@@ -22,11 +22,22 @@ public class CrystallizerCip extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "tipo_cip")
     private String cipType;
+
+    @Column(name = "concentración")
     private Double cipConcentration;
+
+    @Column(name = "temperatura")
     private Integer cipTemperature;
+
+    @Column(name = "tiempo")
     private Integer cipTime;
 
     public CrystallizerCip(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,

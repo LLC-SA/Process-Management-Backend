@@ -1,8 +1,8 @@
-package com.LLC.ProductionProcess.productionProcess.reception.standardization.entity;
+package com.LLC.ProductionProcess.productionProcess.standardization.entity;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
-import com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.process.NanoProcess;
-import com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.process.NanoProduct;
+import com.LLC.ProductionProcess.productionProcess.standardization.entity.process.NanoProcess;
+import com.LLC.ProductionProcess.productionProcess.standardization.entity.process.NanoProduct;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,9 +25,16 @@ public class NanoControl extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalTime inputTime;
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "hora")
+    private LocalTime inputTime;
+
+    @Column(name = "tipo_proceso")
     private String processType;
+
+    @Column(name = "descripción_proceso")
     private String processDescription;
 
     @OneToOne

@@ -16,19 +16,32 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "recepción_filtros_verificación")
+@Table(name = "recepción_filtros")
 public class FilterCheck extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "filtro_número")
     private Integer filterNumber;
+
+    @Column(name = "integridad")
     private Boolean isIntegral;
+
+    @Column(name = "hallazgos")
     private Boolean hasFindings;
+
+    @Column(name = "cambio_desinfectante")
     private Boolean isDisinfectSolutionChanged;
+
+    @Column(name = "observación")
     private String observations;
 
     public FilterCheck(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,

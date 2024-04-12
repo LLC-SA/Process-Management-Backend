@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.reception.standardization.entity.process.cream_separator;
+package com.LLC.ProductionProcess.productionProcess.standardization.entity.process.cream_separator;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
@@ -23,9 +23,16 @@ public class CreamSeparatorProduct extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "bins_número")
     private Integer binsNumber;
+
+    @Column(name = "bins_volumen")
     private Integer binsQuantity;
 
     public CreamSeparatorProduct(@NotNull String createdBy, LocalDate inputDate,

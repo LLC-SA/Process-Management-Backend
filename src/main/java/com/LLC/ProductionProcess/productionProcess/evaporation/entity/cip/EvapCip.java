@@ -21,17 +21,40 @@ public class EvapCip extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "tipo_cip")
     private String cipType;
+
+    @Column(name = "concentración")
     private Double cipConcentration;
+
+    @Column(name = "temperatura")
     private Integer cipTemperature;
+
+    @Column(name = "tiempo")
     private Integer cipTime;
+
+    @Column(name = "caudal")
     private Integer cipFlow;
+
+    @Column(name = "vacío")
     private Integer cipVaccum;
+
+    @Column(name = "cip_evaporador")
     private Boolean isEvaporatorCleaned;
+
+    @Column(name = "cip_pasteurizador")
     private Boolean isPasteurizerCleaned;
+
+    @Column(name = "cip_separadores")
     private Boolean isSeparatorCleaned;
+
+    @Column(name = "cip_flash")
     private Boolean isFlashCleaned;
 
     public EvapCip(@NotNull String createdBy, LocalDate inputDate,

@@ -17,15 +17,22 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "spray_control")
+@Table(name = "spray_1_control")
 public class SprayControl extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "fecha")
     private LocalDate inputDate;
+
+    @Column(name = "hora")
     private LocalTime inputTime;
+
+    @Column(name = "origen_proceso")
     private String processOrigin;
+
+    @Column(name = "descripción_proceso")
     private String processDescription;
 
     @OneToOne
