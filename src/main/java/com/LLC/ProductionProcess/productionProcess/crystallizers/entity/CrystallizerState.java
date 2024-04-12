@@ -25,7 +25,7 @@ public class CrystallizerState extends BaseDateEntity {
 
     @Column(name = "cristalizador_número")
     private String crystallizerNumber;
-
+    
     @Column(name = "hora")
     private LocalTime inputTime;
 

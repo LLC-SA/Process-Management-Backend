@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CrystallizerDto {
+public class EvapCrystallizerDto {
     private Long id;
     private Integer batchNumber;
     private String crystallizerNumber;
