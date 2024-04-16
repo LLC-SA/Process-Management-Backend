@@ -78,7 +78,6 @@ public class CrystItemServiceImpl implements CrystItemService {
     /* ################################################################################################################# */
     /* PRIVATE METHODS */
     /* ################################################################################################################# */
-
     private Cryst retrieveCrystallizerById(Long crystallizerId) {
         Cryst cryst = crystRepository.findById(crystallizerId)
                 .orElseThrow(() -> new ResourceNotFoundException("crystallizer", "crystallizerId", crystallizerId));

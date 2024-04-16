@@ -16,6 +16,39 @@ public class AppCommandLineRunner implements CommandLineRunner {
         this.crystallizerService = crystallizerService;
     }
 
+    public void loadEvaporationData() {
+
+    }
+
+    public void loadNanofiltrationData() {
+
+    }
+
+    public void loadCrystallizerData() {
+
+    }
+
+    public void loadPackagingData() {
+
+    }
+
+    public void loadReceptionData() {
+
+    }
+
+    public void loadSprayOneData() {
+
+    }
+
+    public void loadStandarizationData() {
+
+    }
+
+    public void loadStorageData() {
+
+    }
+
+
     @Override
     public void run(String... args) throws Exception {
 
