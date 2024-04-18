@@ -17,7 +17,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "envase_1_control_proceso")
-public class PackingControlOne extends BaseDateEntity {
+public class PackingProcessOne extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -72,7 +72,7 @@ public class PackingControlOne extends BaseDateEntity {
     @Column(name = "observación")
     private String observations;
 
-    public PackingControlOne(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
+    public PackingProcessOne(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
                              String warehousePlace, String productType, Integer crystallizerBatch,
                              Integer productBatch, Integer productInternalCode, String diskQuality,
                              String visualAspectQuality, String thermalStability, Integer palletNumber,

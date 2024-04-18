@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.reception.entity;
+package com.LLC.ProductionProcess.productionProcess.cip_checks.entity;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
@@ -16,7 +16,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "recepción_filtros")
+@Table(name = "filtros_revisión")
 public class FilterCheck extends BaseDateEntity {
 
     @Id
@@ -29,6 +29,9 @@ public class FilterCheck extends BaseDateEntity {
     @Column(name = "hora")
     private LocalTime inputTime;
 
+    @Column(name = "equipo")
+    private String equipment;
+
     @Column(name = "filtro_número")
     private Integer filterNumber;
 
@@ -38,22 +41,19 @@ public class FilterCheck extends BaseDateEntity {
     @Column(name = "hallazgos")
     private Boolean hasFindings;
 
-    @Column(name = "cambio_desinfectante")
-    private Boolean isDisinfectSolutionChanged;
-
     @Column(name = "observación")
     private String observations;
 
     public FilterCheck(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
-                       Integer filterNumber, Boolean isIntegral, Boolean hasFindings,
-                       Boolean isDisinfectSolutionChanged, String observations) {
+                       String equipment, Integer filterNumber, Boolean isIntegral,
+                       Boolean hasFindings, String observations) {
         super(createdBy);
         this.inputDate = inputDate;
         this.inputTime = inputTime;
+        this.equipment = equipment;
         this.filterNumber = filterNumber;
         this.isIntegral = isIntegral;
         this.hasFindings = hasFindings;
-        this.isDisinfectSolutionChanged = isDisinfectSolutionChanged;
         this.observations = observations;
     }
 }

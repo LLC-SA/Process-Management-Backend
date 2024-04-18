@@ -17,7 +17,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "spray_1_control")
+@Table(name = "spray_uno_control")
 public class SprayControl extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,12 +35,15 @@ public class SprayControl extends BaseDateEntity {
     @Column(name = "descripción_proceso")
     private String processDescription;
 
+    @Column(name = "destino_proceso")
+    private String processDestination;
+
     @OneToOne
     @JoinColumn(name = "crystallizer_id")
     CrystallizerState crytallizerState;
 
     @OneToOne
-    @JoinColumn(name = "sprayOne_equipment_id")
+    @JoinColumn(name = "sprayOne_process_id")
     SprayProcess sprayProcess;
 
     @OneToOne
@@ -48,11 +51,12 @@ public class SprayControl extends BaseDateEntity {
     SprayProduct sprayProduct;
 
     public SprayControl(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
-                        String processOrigin, String processDescription) {
+                        String processOrigin, String processDescription, String processDestination) {
         super(createdBy);
         this.inputDate = inputDate;
         this.inputTime = inputTime;
         this.processOrigin = processOrigin;
         this.processDescription = processDescription;
+        this.processDestination = processDestination;
     }
 }

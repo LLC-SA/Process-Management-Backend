@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "spray_1_proceso")
+@Table(name = "spray_uno_proceso")
 public class SprayProcess extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
