@@ -20,7 +20,7 @@ public class SprayProduct extends BaseDateEntity {
     private Long id;
 
     @Column(name = "tipo_producto")
-    private Integer productGenerated;
+    private Integer productType;
 
     @Column(name = "disco")
     private String diskQuality;
@@ -37,11 +37,11 @@ public class SprayProduct extends BaseDateEntity {
     @Column(name = "estabilidad_térmica")
     private String thermalStability;
 
-    public SprayProduct(@NotNull String createdBy, Integer productGenerated,
+    public SprayProduct(@NotNull String createdBy, Integer productType,
                         String diskQuality, String visualAspectQuality,
                         Double productHumidity, Double productPh, String thermalStability) {
         super(createdBy);
-        this.productGenerated = productGenerated;
+        this.productType = productType;
         this.diskQuality = diskQuality;
         this.visualAspectQuality = visualAspectQuality;
         this.productHumidity = productHumidity;

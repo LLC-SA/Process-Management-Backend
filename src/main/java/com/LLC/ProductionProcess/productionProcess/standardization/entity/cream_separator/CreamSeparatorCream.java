@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.standardization.entity.process.cream_separator;
+package com.LLC.ProductionProcess.productionProcess.standardization.entity.cream_separator;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
@@ -17,7 +17,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "desnatadora_crema")
-public class CreamSeparatorProduct extends BaseDateEntity {
+public class CreamSeparatorCream extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,8 +35,8 @@ public class CreamSeparatorProduct extends BaseDateEntity {
     @Column(name = "bins_volumen")
     private Integer binsQuantity;
 
-    public CreamSeparatorProduct(@NotNull String createdBy, LocalDate inputDate,
-                                 LocalTime inputTime, Integer binsNumber, Integer binsQuantity) {
+    public CreamSeparatorCream(@NotNull String createdBy, LocalDate inputDate,
+                               LocalTime inputTime, Integer binsNumber, Integer binsQuantity) {
         super(createdBy);
         this.inputDate = inputDate;
         this.inputTime = inputTime;

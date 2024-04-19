@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -36,6 +37,9 @@ public class EquipmentCip extends BaseDateEntity {
     @Column(name = "concentración")
     private Double cipConcentration;
 
+    @Column(name = "pH_solución")
+    private Double cipPh;
+
     @Column(name = "caudal")
     private Integer flowRate;
 
@@ -44,16 +48,15 @@ public class EquipmentCip extends BaseDateEntity {
 
     @Column(name = "tiempo")
     private Integer cipTime;
-
-    @Column(name = "pH_enjuague")
-    private Double phRinse;
-
+    
     @Column(name = "desinfección")
     private Boolean isDesinfected;
 
-    public EquipmentCip(LocalDate inputDate, LocalTime inputTime, String equipment, String cipType,
-                        Double cipConcentration, Integer flowRate, Integer cipTemperature,
-                        Integer cipTime, Double phRinse, Boolean isDesinfected) {
+    public EquipmentCip(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
+                        String equipment, String cipType, Double cipConcentration,
+                        Integer flowRate, Integer cipTemperature, Integer cipTime,
+                        Double cipPh, Boolean isDesinfected) {
+        super(createdBy);
         this.inputDate = inputDate;
         this.inputTime = inputTime;
         this.equipment = equipment;
@@ -62,7 +65,7 @@ public class EquipmentCip extends BaseDateEntity {
         this.flowRate = flowRate;
         this.cipTemperature = cipTemperature;
         this.cipTime = cipTime;
-        this.phRinse = phRinse;
+        this.cipPh = cipPh;
         this.isDesinfected = isDesinfected;
     }
 }

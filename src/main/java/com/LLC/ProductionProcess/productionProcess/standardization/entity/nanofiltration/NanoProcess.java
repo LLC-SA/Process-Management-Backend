@@ -1,4 +1,4 @@
-package com.LLC.ProductionProcess.productionProcess.standardization.entity.process;
+package com.LLC.ProductionProcess.productionProcess.standardization.entity.nanofiltration;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
@@ -13,38 +13,16 @@ import org.jetbrains.annotations.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Nanofiltración_proceso")
+@Table(name = "nanofiltración_proceso")
 public class NanoProcess extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    /* FEED */
-    @Column(name = "horas_producción")
-    private Integer productionHours;
 
-    @Column(name = "alimentación")
-    private String feedOrigin;
-
-    @Column(name = "volumen")
-    private Integer feedContainerLevel;
-
-    @Column(name = "caudal")
+    @Column(name = "caudal_alimentación")
     private Integer feedFlow;
 
-    @Column(name = "pH")
-    private Integer feedPh;
-
-    @Column(name = "concentración_alimentación")
-    private Double feedConcentration;
-
-    @Column(name = "turbidez")
-    private Integer feedTurbidity;
-
-    @Column(name = "temperatura")
-    private Integer feedTemperature;
-
-    /* PROCESS */
     @Column(name = "presión_filtros_ingreso")
     private Double inFilterPressure;
 
@@ -70,6 +48,7 @@ public class NanoProcess extends BaseDateEntity {
     private Double firstStepPermeateConcentration;
 
     @Column(name = "flujo_permeado_etapa_2")
+
     private Integer secondStepPermeateFlow;
 
     @Column(name = "concentración_permeado_etapa_2")
@@ -90,25 +69,17 @@ public class NanoProcess extends BaseDateEntity {
     @Column(name = "concentración_permeado_promedio")
     private Double finalPermeateConcentration;
 
-    public NanoProcess(@NotNull String createdBy, Integer productionHours, String feedOrigin,
-                       Integer feedContainerLevel, Integer feedFlow, Integer feedPh,
-                       Double feedConcentration, Integer feedTurbidity, Integer feedTemperature,
-                       Double inFilterPressure, Double outFilterPressure, Double inletPressure,
-                       Double firstStepPressure, Double secondStepPressure, Integer bapPowerPercentage,
-                       Integer firstStepPermeateFlow, Double firstStepPermeateConcentration,
-                       Integer secondStepPermeateFlow, Double secondStepPermeateConcentration,
-                       Integer thirdStepPermeateFlow, Double thirdStepPermeateConcentration,
+    @Column(name = "caudal_producto")
+    private Integer productFlow;
+
+    public NanoProcess(@NotNull String createdBy, Integer feedFlow, Double inFilterPressure, Double outFilterPressure,
+                       Double inletPressure, Double firstStepPressure, Double secondStepPressure, Integer bapPowerPercentage,
+                       Integer firstStepPermeateFlow, Double firstStepPermeateConcentration, Integer secondStepPermeateFlow,
+                       Double secondStepPermeateConcentration, Integer thirdStepPermeateFlow, Double thirdStepPermeateConcentration,
                        Integer fourthStepPermeateFlow, Double fourthStepPermeateConcentration,
-                       Double finalPermeateConcentration) {
+                       Double finalPermeateConcentration, Integer productFlow) {
         super(createdBy);
-        this.productionHours = productionHours;
-        this.feedOrigin = feedOrigin;
-        this.feedContainerLevel = feedContainerLevel;
         this.feedFlow = feedFlow;
-        this.feedPh = feedPh;
-        this.feedConcentration = feedConcentration;
-        this.feedTurbidity = feedTurbidity;
-        this.feedTemperature = feedTemperature;
         this.inFilterPressure = inFilterPressure;
         this.outFilterPressure = outFilterPressure;
         this.inletPressure = inletPressure;
@@ -124,5 +95,6 @@ public class NanoProcess extends BaseDateEntity {
         this.fourthStepPermeateFlow = fourthStepPermeateFlow;
         this.fourthStepPermeateConcentration = fourthStepPermeateConcentration;
         this.finalPermeateConcentration = finalPermeateConcentration;
+        this.productFlow = productFlow;
     }
 }
