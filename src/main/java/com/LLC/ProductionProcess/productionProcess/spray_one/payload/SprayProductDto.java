@@ -8,4 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SprayProductDto {
+    private Integer productGenerated;
+    private String diskQuality;
+    private String visualAspectQuality;
+    private Double productHumidity;
+    private Double productPh;
+    private String thermalStability;
 }
