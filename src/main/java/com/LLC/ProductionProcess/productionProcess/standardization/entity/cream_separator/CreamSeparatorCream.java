@@ -18,7 +18,6 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "desnatadora_crema")
 public class CreamSeparatorCream extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

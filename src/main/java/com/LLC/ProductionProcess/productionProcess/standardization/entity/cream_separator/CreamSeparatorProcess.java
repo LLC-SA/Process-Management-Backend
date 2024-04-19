@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 @Entity
 @Table(name = "desnatadora_proceso")
 public class CreamSeparatorProcess extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
