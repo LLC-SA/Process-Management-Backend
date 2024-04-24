@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface EvapControlRepository extends JpaRepository<EvapControl, Long> {
-
     @Query(value = " SELECT * FROM evaporador_control c WHERE c.created_date = ?1 ", nativeQuery = true)
     List<EvapControl> getAllEvapControlDataByDate(LocalDate date);
 }

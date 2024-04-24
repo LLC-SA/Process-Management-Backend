@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 @NoArgsConstructor
 @Entity
 @Table(name = "desnatadora_proceso")
-public class CreamSeparatorProcess extends BaseDateEntity {
+public class SeparatorProcess extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -28,7 +28,7 @@ public class CreamSeparatorProcess extends BaseDateEntity {
     @Column(name = "funcionamiento_descarga")
     private Boolean isSeparatorDischargeWorking;
 
-    public CreamSeparatorProcess(@NotNull String createdBy, Integer feedFlow, Double feedBackPressure, Boolean isSeparatorDischargeWorking) {
+    public SeparatorProcess(@NotNull String createdBy, Integer feedFlow, Double feedBackPressure, Boolean isSeparatorDischargeWorking) {
         super(createdBy);
         this.feedFlow = feedFlow;
         this.feedBackPressure = feedBackPressure;

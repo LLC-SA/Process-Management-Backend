@@ -1,5 +1,6 @@
 package com.LLC.ProductionProcess.productionProcess.standardization.entity.cream_separator;
 
+import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "desnatadora_alimentación")
-public class CreamSeparatorFeed {
+public class SeparatorFeed extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,7 +31,7 @@ public class CreamSeparatorFeed {
     @Column(name = "pH")
     private Double feedPh;
 
-    public CreamSeparatorFeed(String feedType, Integer feedConcentration, Integer feedTemperature, Double feedPh) {
+    public SeparatorFeed(String feedType, Integer feedConcentration, Integer feedTemperature, Double feedPh) {
         this.feedType = feedType;
         this.feedConcentration = feedConcentration;
         this.feedTemperature = feedTemperature;

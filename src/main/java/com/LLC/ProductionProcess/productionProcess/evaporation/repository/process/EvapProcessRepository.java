@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface EvapProcessRepository extends JpaRepository<EvapProcess, Long> {
-
     @Query(value = " SELECT * FROM evaporador_proceso u WHERE u.created_date = ?1 ", nativeQuery = true)
     List<EvapProcess> findAllByCreatedDate(LocalDate date);
 }

@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface CrystRepository extends JpaRepository<Cryst, Long> {
-
     @Query(value = " SELECT * FROM cristalizadores_estado c WHERE c.created_date = ?1 ", nativeQuery = true)
     List<Cryst> findAllByCreatedDate(LocalDate date);
 

@@ -17,7 +17,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @Entity
 @Table(name = "desnatadora_crema")
-public class CreamSeparatorCream extends BaseDateEntity {
+public class SeparatorCream extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -34,8 +34,8 @@ public class CreamSeparatorCream extends BaseDateEntity {
     @Column(name = "bins_volumen")
     private Integer binsQuantity;
 
-    public CreamSeparatorCream(@NotNull String createdBy, LocalDate inputDate,
-                               LocalTime inputTime, Integer binsNumber, Integer binsQuantity) {
+    public SeparatorCream(@NotNull String createdBy, LocalDate inputDate,
+                          LocalTime inputTime, Integer binsNumber, Integer binsQuantity) {
         super(createdBy);
         this.inputDate = inputDate;
         this.inputTime = inputTime;

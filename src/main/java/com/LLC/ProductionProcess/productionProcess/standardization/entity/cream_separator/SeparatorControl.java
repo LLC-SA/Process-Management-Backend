@@ -1,5 +1,6 @@
 package com.LLC.ProductionProcess.productionProcess.standardization.entity.cream_separator;
 
+import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "desnatadora_control")
-public class CreamSeparatorControl {
+public class SeparatorControl extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -43,9 +44,29 @@ public class CreamSeparatorControl {
 
     @OneToOne
     @JoinColumn(name = "cream_separator_process_id")
-    CreamSeparatorProcess creamSeparatorProcess;
+    SeparatorProcess separatorProcess;
+
+    @OneToOne
+    @JoinColumn(name = "cream_separator_feed_id")
+    SeparatorFeed separatorFeed;
 
     @OneToOne
     @JoinColumn(name = "cream_separator_product_id")
-    CreamSeparatorCream creamSeparatorCream;
+    SeparatorProduct separatorProduct;
+
+    @OneToOne
+    @JoinColumn(name = "cream_separator_cream_id")
+    SeparatorCream separatorCream;
+
+    public SeparatorControl(LocalDate inputDate, LocalTime inputTime, String processType,
+                            String feedOrigin, Integer feedContainerLevel, String productDestination,
+                            String productDestinationContainerLevel) {
+        this.inputDate = inputDate;
+        this.inputTime = inputTime;
+        this.processType = processType;
+        this.feedOrigin = feedOrigin;
+        this.feedContainerLevel = feedContainerLevel;
+        this.productDestination = productDestination;
+        this.productDestinationContainerLevel = productDestinationContainerLevel;
+    }
 }

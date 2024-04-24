@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface PasteurizerRepository extends JpaRepository<Pasteurizer, Long> {
-
     @Query(value = " SELECT * FROM evaporador_pasteurizador u WHERE u.created_date = ?1 ", nativeQuery = true)
     List<Pasteurizer> findAllByCreatedDate(LocalDate date);
 
