@@ -1,6 +1,8 @@
 package com.LLC.ProductionProcess.productionProcess.standardization.entity.cream_separator;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
+import com.LLC.ProductionProcess.productionProcess.storage.entity.FeedControl;
+import com.LLC.ProductionProcess.productionProcess.storage.entity.ProductToStorage;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,17 +32,11 @@ public class SeparatorControl extends BaseDateEntity {
     @Column(name = "tipo_proceso")
     private String processType;
 
-    @Column(name = "alimentación")
+    @Column(name = "alimentación_proceso")
     private String feedOrigin;
 
-    @Column(name = "volumen_alimentación")
-    private Integer feedContainerLevel;
-
-    @Column(name = "destino")
+    @Column(name = "destino_proceso")
     private String productDestination;
-
-    @Column(name = "volumen_destino")
-    private String productDestinationContainerLevel;
 
     @OneToOne
     @JoinColumn(name = "cream_separator_process_id")
@@ -48,11 +44,11 @@ public class SeparatorControl extends BaseDateEntity {
 
     @OneToOne
     @JoinColumn(name = "cream_separator_feed_id")
-    SeparatorFeed separatorFeed;
+    FeedControl feedControl;
 
     @OneToOne
     @JoinColumn(name = "cream_separator_product_id")
-    SeparatorProduct separatorProduct;
+    ProductToStorage productToStorage;
 
     @OneToOne
     @JoinColumn(name = "cream_separator_cream_id")
@@ -65,8 +61,6 @@ public class SeparatorControl extends BaseDateEntity {
         this.inputTime = inputTime;
         this.processType = processType;
         this.feedOrigin = feedOrigin;
-        this.feedContainerLevel = feedContainerLevel;
         this.productDestination = productDestination;
-        this.productDestinationContainerLevel = productDestinationContainerLevel;
     }
 }

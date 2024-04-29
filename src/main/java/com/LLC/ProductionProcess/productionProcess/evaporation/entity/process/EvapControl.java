@@ -1,6 +1,8 @@
 package com.LLC.ProductionProcess.productionProcess.evaporation.entity.process;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
+import com.LLC.ProductionProcess.productionProcess.storage.entity.FeedControl;
+import com.LLC.ProductionProcess.productionProcess.storage.entity.ProductToStorage;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,44 +18,48 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "evaporador_control")
 public class EvapControl extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "hora")
-    private LocalTime inputTime;
-
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
-    @Column(name = "origen_proceso")
-    private String processOrigin;
+    @Column(name = "hora_realización")
+    private LocalTime inputTime;
 
-    @Column(name = "descripción_proceso")
-    private String processDescription;
+    @Column(name = "proceso_tipo")
+    private String processType;
 
-    @Column(name = "destino_proceso")
-    private String processDestination;
+    @Column(name = "origen_alimentación")
+    private String feedOrigin;
 
-    @Column(name = "caudal")
-    private Integer flowValue;
+    @Column(name = "destino_producto")
+    private String productDestination;
 
     @OneToOne
-    @JoinColumn(name = "evap_pasteurizer_id")
+    @JoinColumn(name = "fk_evap_feed_id")
+    FeedControl feedControl;
+
+    @OneToOne
+    @JoinColumn(name = "fk_evap_pasteurizer_id")
     Pasteurizer pasteurizer;
 
     @OneToOne
-    @JoinColumn(name = "evap_evaporator_id")
+    @JoinColumn(name = "fk_evap_process_id")
     EvapProcess evapProcess;
 
-    public EvapControl(@NotNull String createdBy, String processOrigin,
-                       String processDescription, String processDestination,
-                       Integer flowValue) {
+    @OneToOne
+    @JoinColumn(name = "fk_evap_product_id")
+    ProductToStorage productToStorage;
+
+    public EvapControl(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
+                       String processType, String feedOrigin, String productDestination) {
         super(createdBy);
-        this.processOrigin = processOrigin;
-        this.processDescription = processDescription;
-        this.processDestination = processDestination;
-        this.flowValue = flowValue;
+        this.inputDate = inputDate;
+        this.inputTime = inputTime;
+        this.processType = processType;
+        this.feedOrigin = feedOrigin;
+        this.productDestination = productDestination;
     }
 }

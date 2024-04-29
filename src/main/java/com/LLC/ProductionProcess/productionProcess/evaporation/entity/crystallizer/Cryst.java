@@ -14,14 +14,13 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "evaporador_llenado_cristalizador")
+@Table(name = "cristalizador_llenado")
 public class Cryst extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
     @Column(name = "batch")
@@ -33,13 +32,13 @@ public class Cryst extends BaseDateEntity {
     @Column(name = "revisado_desinfectado")
     private String checkedOrDisinfected;
 
-    @Column(name = "tipo_producto")
+    @Column(name = "producto_tipo")
     private String productType;
 
     @Column(name = "lotes_d90")
     private String d90BatchId;
 
-    @Column(name = "origen")
+    @Column(name = "origen_producto")
     private String crystallizerOrigin;
 
     @Column(name = "pH")
@@ -52,7 +51,7 @@ public class Cryst extends BaseDateEntity {
     private Integer crystallizerVolume;
 
     @OneToMany(mappedBy = "cryst", cascade = CascadeType.ALL)
-    private List<CrystItem> crystItems;
+    private List<CrystItem> crystItem;
 
     public Cryst(@NotNull String createdBy, LocalDate inputDate, Integer batchNumber,
                  String crystallizerNumber, String checkedOrDisinfected,

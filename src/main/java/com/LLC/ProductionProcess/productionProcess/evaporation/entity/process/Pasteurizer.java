@@ -13,25 +13,9 @@ import org.jetbrains.annotations.NotNull;
 @Entity
 @Table(name = "evaporador_pasteurizador")
 public class Pasteurizer extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "alimentación")
-    private String feedOrigin;
-
-    @Column(name = "pH")
-    private Double feedPh;
-
-    @Column(name = "temperatura_alimentación")
-    private Double feedTemp;
-
-    @Column(name = "volumen_alimentación")
-    private Integer feedContainerLevel;
-
-    @Column(name = "concentración_alimentación")
-    private Double feedSolids;
 
     @Column(name = "temperatura_agua_caliente")
     private Integer hotWaterTemp;
@@ -42,15 +26,8 @@ public class Pasteurizer extends BaseDateEntity {
     @Column(name = "caudal")
     private Integer flowRate;
 
-    public Pasteurizer(@NotNull String createdBy, String feedOrigin, Double feedPh,
-                       Double feedTemp, Integer feedContainerLevel, Double feedSolids,
-                       Integer hotWaterTemp, Integer pasteurizationTemp, Integer flowRate) {
+    public Pasteurizer(@NotNull String createdBy, Integer hotWaterTemp, Integer pasteurizationTemp, Integer flowRate) {
         super(createdBy);
-        this.feedOrigin = feedOrigin;
-        this.feedPh = feedPh;
-        this.feedTemp = feedTemp;
-        this.feedContainerLevel = feedContainerLevel;
-        this.feedSolids = feedSolids;
         this.hotWaterTemp = hotWaterTemp;
         this.pasteurizationTemp = pasteurizationTemp;
         this.flowRate = flowRate;

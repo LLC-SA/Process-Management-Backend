@@ -16,23 +16,22 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "envase_1_control_peso")
+@Table(name = "envase_uno_control_pesos")
 public class WeightControl extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
-    @Column(name = "hora")
+    @Column(name = "hora_realización")
     private LocalTime inputTime;
 
     @Column(name = "balanza_número")
     private Integer balanceNumber;
 
-    @Column(name = "control_peso")
+    @Column(name = "peso_controlado")
     private Double bagWeight;
 
     @Column(name = "observación")

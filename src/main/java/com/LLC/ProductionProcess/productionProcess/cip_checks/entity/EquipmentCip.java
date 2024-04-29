@@ -16,16 +16,16 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "cip_equipos")
+@Table(name = "cip_equipo")
 public class EquipmentCip extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
-    @Column(name = "hora")
+    @Column(name = "hora_finalización")
     private LocalTime inputTime;
 
     @Column(name = "equipo")
@@ -34,7 +34,7 @@ public class EquipmentCip extends BaseDateEntity {
     @Column(name = "tipo_cip")
     private String cipType;
 
-    @Column(name = "concentración")
+    @Column(name = "concentración_solución")
     private Double cipConcentration;
 
     @Column(name = "pH_solución")
@@ -43,12 +43,12 @@ public class EquipmentCip extends BaseDateEntity {
     @Column(name = "caudal")
     private Integer flowRate;
 
-    @Column(name = "temperatura")
+    @Column(name = "temperatura_solución")
     private Integer cipTemperature;
 
     @Column(name = "tiempo")
     private Integer cipTime;
-    
+
     @Column(name = "desinfección")
     private Boolean isDesinfected;
 

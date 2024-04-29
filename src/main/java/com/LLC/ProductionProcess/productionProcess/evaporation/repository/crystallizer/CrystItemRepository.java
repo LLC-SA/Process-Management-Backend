@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CrystItemRepository extends JpaRepository<CrystItem, Long> {
 
-    List<CrystItem> findByEvapCrystallizerId(Long id);
+    List<CrystItem> findByCrystId(Long id);
 }

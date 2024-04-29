@@ -16,7 +16,6 @@ import java.util.List;
 
 @Service
 public class CrystItemServiceImpl implements CrystItemService {
-
     CrystItemRepository crystItemRepository;
     CrystRepository crystRepository;
 
@@ -29,7 +28,7 @@ public class CrystItemServiceImpl implements CrystItemService {
     @Override
     public List<CrystItemDto> getDataByCrystallizerId(Long crystallizerId) {
         // ERROR //
-        List<CrystItem> crystItemServices = crystItemRepository.findByEvapCrystallizerId(crystallizerId);
+        List<CrystItem> crystItemServices = crystItemRepository.findByCrystId(crystallizerId);
 
         List<CrystItemDto> crystallizerDetailsDto = crystItemServices.stream()
                 .map(detail -> DtoMapper.entityToDto(detail, CrystItemDto.class)).toList();

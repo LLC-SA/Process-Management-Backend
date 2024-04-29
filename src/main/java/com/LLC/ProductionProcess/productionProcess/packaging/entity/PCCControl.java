@@ -16,27 +16,26 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "envase_1_control_PCC")
+@Table(name = "envase_uno_PCC")
 public class PCCControl extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
-    @Column(name = "hora")
+    @Column(name = "hora_realización")
     private LocalTime inputTime;
 
-    @Column(name = "tipo_de_envasadora")
+    @Column(name = "envasadora_tipo")
     private String packingType;
 
     // PPRO
     @Column(name = "integridad_zaranda")
     private Boolean vibratingSifterIntegrity;
 
-    @Column(name = "control_del_iman")
+    @Column(name = "control_de_iman")
     private Boolean magnetControl;
 
     //PCC

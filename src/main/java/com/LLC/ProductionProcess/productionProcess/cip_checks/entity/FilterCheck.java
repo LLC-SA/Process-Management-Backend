@@ -16,17 +16,16 @@ import java.time.LocalTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "filtros_revisión")
+@Table(name = "filtro_revisión")
 public class FilterCheck extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
-    @Column(name = "hora")
+    @Column(name = "hora_finalización")
     private LocalTime inputTime;
 
     @Column(name = "equipo")

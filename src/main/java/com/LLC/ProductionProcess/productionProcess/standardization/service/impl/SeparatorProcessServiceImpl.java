@@ -2,9 +2,11 @@ package com.LLC.ProductionProcess.productionProcess.standardization.service.impl
 
 import com.LLC.ProductionProcess.productionProcess.standardization.entity.cream_separator.SeparatorProcess;
 import com.LLC.ProductionProcess.productionProcess.standardization.service.intf.SeparatorProcessService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SeparatorProcessServiceImpl implements SeparatorProcessService {
     @Override
     public SeparatorProcess getDataById(Long id) {

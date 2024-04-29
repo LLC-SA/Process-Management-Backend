@@ -20,19 +20,19 @@ public class CrystallizerState extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
+
+    @Column(name = "hora_finalización")
+    private LocalTime inputTime;
 
     @Column(name = "cristalizador_número")
     private String crystallizerNumber;
-    
-    @Column(name = "hora")
-    private LocalTime inputTime;
 
     @Column(name = "volumen")
     private Integer crystallizerVolume;
 
-    @Column(name = "tipo_producto")
+    @Column(name = "producto_tipo")
     private String productType;
 
     @Column(name = "batch")
@@ -50,7 +50,6 @@ public class CrystallizerState extends BaseDateEntity {
     @Column(name = "acidez")
     private Integer acidity;
 
-    // Spray
     @Column(name = "solidos_totales")
     private Double totalSolids;
 

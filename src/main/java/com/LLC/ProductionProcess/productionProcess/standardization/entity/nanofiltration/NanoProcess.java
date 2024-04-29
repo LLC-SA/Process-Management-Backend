@@ -13,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "nanofiltración_proceso")
+@Table(name = "nano_proceso")
 public class NanoProcess extends BaseDateEntity {
 
     @Id

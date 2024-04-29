@@ -12,7 +12,6 @@ import lombok.Setter;
 @Entity
 @Table(name = "evaporador_proceso")
 public class EvapProcess extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -44,16 +43,13 @@ public class EvapProcess extends BaseDateEntity {
     @Column(name = "vacío")
     private Integer vacuumPressure;
 
-    @Column(name = "destino_producto")
-    private String productOutput;
-
     @Column(name = "solidos_producto")
     private Double productSolids;
 
     public EvapProcess(String createdBy, Integer effectOneTemp, Integer effectTwoTemp,
                        Integer effectThreeTemp, Double boilerSteamPressure, Double evaporatorSteamPressure,
                        Integer coolingTowerIn, Integer coolingTowerOut, Integer flashTemp,
-                       Integer vacuumPressure, String productOutput, Double productSolids) {
+                       Integer vacuumPressure, Double productSolids) {
         super(createdBy);
         this.effectOneTemp = effectOneTemp;
         this.effectTwoTemp = effectTwoTemp;
@@ -64,7 +60,6 @@ public class EvapProcess extends BaseDateEntity {
         this.coolingTowerOut = coolingTowerOut;
         this.flashTemp = flashTemp;
         this.vacuumPressure = vacuumPressure;
-        this.productOutput = productOutput;
         this.productSolids = productSolids;
     }
 }

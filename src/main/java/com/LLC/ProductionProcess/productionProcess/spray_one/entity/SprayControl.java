@@ -2,6 +2,7 @@ package com.LLC.ProductionProcess.productionProcess.spray_one.entity;
 
 import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import com.LLC.ProductionProcess.productionProcess.crystallizers.entity.CrystallizerState;
+import com.LLC.ProductionProcess.productionProcess.storage.entity.PowderToStorage;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,14 +30,14 @@ public class SprayControl extends BaseDateEntity {
     @Column(name = "hora")
     private LocalTime inputTime;
 
-    @Column(name = "origen_proceso")
-    private String processOrigin;
+    @Column(name = "tipo_proceso")
+    private String processType;
 
-    @Column(name = "descripción_proceso")
-    private String processDescription;
+    @Column(name = "alimentación_proceso")
+    private String feedOrigin;
 
     @Column(name = "destino_proceso")
-    private String processDestination;
+    private String productDestination;
 
     @OneToOne
     @JoinColumn(name = "crystallizer_id")
@@ -48,15 +49,16 @@ public class SprayControl extends BaseDateEntity {
 
     @OneToOne
     @JoinColumn(name = "sprayOne_product_id")
-    SprayProduct sprayProduct;
+    PowderToStorage powderToStorage;
 
-    public SprayControl(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,
-                        String processOrigin, String processDescription, String processDestination) {
+    public SprayControl(@NotNull String createdBy, LocalDate inputDate,
+                        LocalTime inputTime, String feedOrigin,
+                        String processType, String productDestination) {
         super(createdBy);
         this.inputDate = inputDate;
         this.inputTime = inputTime;
-        this.processOrigin = processOrigin;
-        this.processDescription = processDescription;
-        this.processDestination = processDestination;
+        this.feedOrigin = feedOrigin;
+        this.processType = processType;
+        this.productDestination = productDestination;
     }
 }

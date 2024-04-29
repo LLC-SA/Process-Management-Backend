@@ -15,18 +15,17 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "torres_enfriamiento_estado")
 public class CoolingTower extends BaseDateEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
     @Column(name = "sales_concentración")
     private Integer saltConcentration;
 
-    @Column(name = "cambio_de_agua")
+    @Column(name = "cambio_agua")
     private Boolean isWaterChanged;
 
     public CoolingTower(@NotNull String createdBy, LocalDate inputDate,
