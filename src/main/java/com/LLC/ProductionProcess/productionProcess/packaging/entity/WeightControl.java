@@ -16,7 +16,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "envase_uno_control_pesos")
+@Table(name = "envase_uno_verificación")
 public class WeightControl extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
