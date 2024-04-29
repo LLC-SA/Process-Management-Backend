@@ -11,10 +11,9 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EvapControlDto {
-    private LocalTime inputTime;
     private LocalDate inputDate;
-    private String processOrigin;
-    private String processDescription;
-    private String processDestination;
-    private Integer flowValue;
+    private LocalTime inputTime;
+    private String processType;
+    private String feedOrigin;
+    private String productDestination;
 }

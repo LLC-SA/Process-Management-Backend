@@ -8,11 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PasteurizerDto {
-    private String feedOrigin;
-    private Double feedPh;
-    private Double feedTemp;
-    private Integer feedContainerLevel;
-    private Double feedSolids;
     private Integer hotWaterTemp;
     private Integer pasteurizationTemp;
     private Integer flowRate;

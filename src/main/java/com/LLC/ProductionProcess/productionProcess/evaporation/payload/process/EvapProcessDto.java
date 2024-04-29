@@ -17,6 +17,5 @@ public class EvapProcessDto {
     private Integer coolingTowerOut;
     private Integer flashTemp;
     private Integer vacuumPressure;
-    private String productOutput;
     private Double productSolids;
 }
