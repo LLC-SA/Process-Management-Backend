@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class EvapControlServiceImpl implements EvapControlService {
 
-    EvapControlRepository evapControlRepository;
+    private EvapControlRepository evapControlRepository;
 
     public EvapControlServiceImpl(EvapControlRepository evapControlRepository) {
         this.evapControlRepository = evapControlRepository;

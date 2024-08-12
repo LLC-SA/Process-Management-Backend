@@ -10,9 +10,9 @@ import org.jetbrains.annotations.NotNull;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "cristalizador_estado")
 public class CrystallizerState extends BaseDateEntity {

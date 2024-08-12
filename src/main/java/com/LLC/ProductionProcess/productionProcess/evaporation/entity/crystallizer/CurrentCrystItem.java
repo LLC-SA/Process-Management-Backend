@@ -14,7 +14,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "cristalizador_llenado_detalle")
-public class CrystItem extends BaseDateEntity {
+public class CurrentCrystItem extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,11 +33,11 @@ public class CrystItem extends BaseDateEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_evaporation_crystallizer_id")
-    private Cryst cryst;
+    private CurrentCryst currentCryst;
 
-    public CrystItem(@NotNull String createdBy, LocalTime inputTime,
-                     Double pasteurizationTemperature, Double productConcentration,
-                     Integer coolingTemperature) {
+    public CurrentCrystItem(@NotNull String createdBy, LocalTime inputTime,
+                            Double pasteurizationTemperature, Double productConcentration,
+                            Integer coolingTemperature) {
         super(createdBy);
         this.inputTime = inputTime;
         this.pasteurizationTemperature = pasteurizationTemperature;

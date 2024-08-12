@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CrystItemDto {
+public class CurrentCrystItemDto {
     private Long id;
     private Double pasteurizationTemperature;
     private Double productConcentration;

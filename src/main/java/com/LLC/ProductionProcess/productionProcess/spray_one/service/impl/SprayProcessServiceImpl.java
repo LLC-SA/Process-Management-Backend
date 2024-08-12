@@ -9,7 +9,8 @@ import com.LLC.ProductionProcess.utils.DtoMapper;
 import java.util.List;
 
 public class SprayProcessServiceImpl implements SprayProcessService {
-    SprayProcessRepository sprayProcessRepository;
+
+    private SprayProcessRepository sprayProcessRepository;
 
     public SprayProcessServiceImpl(SprayProcessRepository sprayProcessRepository) {
         this.sprayProcessRepository = sprayProcessRepository;

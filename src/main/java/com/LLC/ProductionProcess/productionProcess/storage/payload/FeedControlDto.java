@@ -1,15 +1,13 @@
 package com.LLC.ProductionProcess.productionProcess.storage.payload;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class FeedControlDto {
@@ -22,5 +20,5 @@ public class FeedControlDto {
     private Double feedTemperature;
     private Double feedPh;
     private Integer feedAcidity;
-    private String equipmentInProcess;
+    private String usedBy;
 }

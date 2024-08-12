@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class WeightControlServiceImpl implements WeightControlService {
-    WeightControlRepository weightControlRepository;
+    private WeightControlRepository weightControlRepository;
 
     public WeightControlServiceImpl(WeightControlRepository weightControlRepository) {
         this.weightControlRepository = weightControlRepository;

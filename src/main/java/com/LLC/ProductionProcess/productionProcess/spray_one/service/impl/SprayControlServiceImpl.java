@@ -11,7 +11,8 @@ import java.util.List;
 
 @Service
 public class SprayControlServiceImpl implements SprayControlService {
-    SprayControlRepository sprayControlRepository;
+
+    private SprayControlRepository sprayControlRepository;
 
     public SprayControlServiceImpl(SprayControlRepository sprayControlRepository) {
         this.sprayControlRepository = sprayControlRepository;

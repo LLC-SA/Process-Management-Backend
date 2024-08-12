@@ -53,7 +53,6 @@ public class EvapProcessServiceImpl implements EvapProcessService {
         dataDB.setEffectThreeTemp(dto.getEffectThreeTemp());
         dataDB.setFlashTemp(dto.getFlashTemp());
         dataDB.setVacuumPressure(dto.getVacuumPressure());
-        dataDB.setProductOutput(dto.getProductOutput());
         dataDB.setProductSolids(dto.getProductSolids());
 
         EvapProcess updatedDataDB = evapProcessRepository.save(dataDB);

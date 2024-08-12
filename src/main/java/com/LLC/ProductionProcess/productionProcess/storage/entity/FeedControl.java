@@ -22,16 +22,16 @@ public class FeedControl extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
-    @Column(name = "hora")
+    @Column(name = "hora_realización")
     private LocalTime inputTime;
 
     @Column(name = "silo_número")
     private String siloNumber;
 
-    @Column(name = "tipo")
+    @Column(name = "tipo_producto")
     private String feedType;
 
     @Column(name = "volumen")
@@ -49,7 +49,7 @@ public class FeedControl extends BaseDateEntity {
     @Column(name = "acidez")
     private Integer feedAcidity;
 
-    @Column(name = "equipo_proceso")
+    @Column(name = "equipo_procesando")
     private String usedBy;
 
     public FeedControl(@NotNull String createdBy, LocalDate inputDate, LocalTime inputTime,

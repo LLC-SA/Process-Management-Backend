@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "cristalizador_llenado")
-public class Cryst extends BaseDateEntity {
+public class CurrentCryst extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -50,13 +50,13 @@ public class Cryst extends BaseDateEntity {
     @Column(name = "volumen")
     private Integer crystallizerVolume;
 
-    @OneToMany(mappedBy = "cryst", cascade = CascadeType.ALL)
-    private List<CrystItem> crystItem;
+    @OneToMany(mappedBy = "currentCryst", cascade = CascadeType.ALL)
+    private List<CurrentCrystItem> currentCrystItem;
 
-    public Cryst(@NotNull String createdBy, LocalDate inputDate, Integer batchNumber,
-                 String crystallizerNumber, String checkedOrDisinfected,
-                 String productType, String d90BatchId, String crystallizerOrigin,
-                 Double concentratepH, Integer acidity, Integer crystallizerVolume) {
+    public CurrentCryst(@NotNull String createdBy, LocalDate inputDate, Integer batchNumber,
+                        String crystallizerNumber, String checkedOrDisinfected,
+                        String productType, String d90BatchId, String crystallizerOrigin,
+                        Double concentratepH, Integer acidity, Integer crystallizerVolume) {
         super(createdBy);
         this.inputDate = inputDate;
         this.batchNumber = batchNumber;

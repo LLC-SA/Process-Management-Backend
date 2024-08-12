@@ -38,7 +38,7 @@ public class ProductToStorage {
     @Column(name = "pH")
     private Double productPh;
 
-    @Column(name = "equipo_proceso")
+    @Column(name = "equipo_generador")
     private String generatedBy;
 
     public ProductToStorage(LocalDate inputDate, LocalTime inputTime, Integer productType, String productConcentration,

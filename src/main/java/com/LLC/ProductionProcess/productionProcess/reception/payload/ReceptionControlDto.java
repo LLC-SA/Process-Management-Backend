@@ -10,7 +10,7 @@ import java.time.LocalTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReceptionProcessDto {
+public class ReceptionControlDto {
     private LocalDate inputDate;
     private String supplier;
     private Integer dispatchNumber;

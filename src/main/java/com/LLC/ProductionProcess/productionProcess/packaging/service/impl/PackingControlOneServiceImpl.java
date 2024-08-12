@@ -11,7 +11,8 @@ import java.util.List;
 
 @Service
 public class PackingControlOneServiceImpl implements PackingControlOneService {
-    PackingControlOneRepository packingControlOneRepository;
+
+    private PackingControlOneRepository packingControlOneRepository;
 
     public PackingControlOneServiceImpl(PackingControlOneRepository packingControlOneRepository) {
         this.packingControlOneRepository = packingControlOneRepository;

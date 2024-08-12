@@ -4,11 +4,14 @@ import com.LLC.ProductionProcess.productionProcess.crystallizers.entity.Crystall
 import com.LLC.ProductionProcess.productionProcess.crystallizers.payload.CrystallizerStateDto;
 import com.LLC.ProductionProcess.productionProcess.crystallizers.repository.CrystallizerStateRepository;
 import com.LLC.ProductionProcess.utils.DtoMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CrystallizerStateServiceImpl implements CrystallizerStateService {
-    CrystallizerStateRepository crystallizerStateRepository;
+
+    private CrystallizerStateRepository crystallizerStateRepository;
 
     public CrystallizerStateServiceImpl(CrystallizerStateRepository crystallizerStateRepository) {
         this.crystallizerStateRepository = crystallizerStateRepository;

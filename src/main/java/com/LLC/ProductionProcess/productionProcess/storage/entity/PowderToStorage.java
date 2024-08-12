@@ -1,5 +1,6 @@
 package com.LLC.ProductionProcess.productionProcess.storage.entity;
 
+import com.LLC.ProductionProcess.generics.entity.BaseDateEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "polvo_a_depósito")
-public class PowderToStorage {
+public class PowderToStorage extends BaseDateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

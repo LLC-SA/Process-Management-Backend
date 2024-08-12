@@ -11,7 +11,11 @@ import java.util.List;
 @Service
 public class FeedControlServiceImpl implements FeedControlService {
 
-    FeedControlRepository feedControlRepository;
+    private FeedControlRepository feedControlRepository;
+
+    public FeedControlServiceImpl(FeedControlRepository feedControlRepository) {
+        this.feedControlRepository = feedControlRepository;
+    }
 
     @Override
     public FeedControlDto getDataById(Long id) {

@@ -17,7 +17,5 @@ public class SeparatorControlDto {
     private LocalTime inputTime;
     private String processType;
     private String feedOrigin;
-    private Integer feedContainerLevel;
     private String productDestination;
-    private String productDestinationContainerLevel;
 }

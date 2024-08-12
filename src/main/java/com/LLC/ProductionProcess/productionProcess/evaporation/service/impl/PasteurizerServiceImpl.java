@@ -7,10 +7,12 @@ import com.LLC.ProductionProcess.productionProcess.evaporation.repository.proces
 import com.LLC.ProductionProcess.productionProcess.evaporation.service.intf.PasteurizerService;
 import com.LLC.ProductionProcess.utils.DtoMapper;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Service
 public class PasteurizerServiceImpl implements PasteurizerService {
 
     private PasteurizerRepository pasteurizerRepository;
@@ -43,13 +45,7 @@ public class PasteurizerServiceImpl implements PasteurizerService {
     @Override
     public PasteurizerDto updateData(@NotNull PasteurizerDto dto, Long id) {
         Pasteurizer dataDB = retrievePasteurizerDataById(id);
-
-        dataDB.setFeedContainerLevel(dto.getFeedContainerLevel());
-        dataDB.setFeedOrigin(dto.getFeedOrigin());
-        dataDB.setFeedPh(dto.getFeedPh());
-        dataDB.setFeedSolids(dto.getFeedSolids());
         dataDB.setFlowRate(dto.getFlowRate());
-        dataDB.setFeedTemp(dto.getFeedTemp());
         dataDB.setHotWaterTemp(dto.getHotWaterTemp());
         dataDB.setPasteurizationTemp(dto.getPasteurizationTemp());
 

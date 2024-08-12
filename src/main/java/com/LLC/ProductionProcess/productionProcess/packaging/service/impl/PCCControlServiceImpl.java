@@ -11,7 +11,8 @@ import java.util.List;
 
 @Service
 public class PCCControlServiceImpl implements PCCControlService {
-    PCCControlRepository pccControlRepository;
+
+    private PCCControlRepository pccControlRepository;
 
     public PCCControlServiceImpl(PCCControlRepository pccControlRepository) {
         this.pccControlRepository = pccControlRepository;

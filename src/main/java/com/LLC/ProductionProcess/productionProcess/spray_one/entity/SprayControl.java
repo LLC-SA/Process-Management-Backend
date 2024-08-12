@@ -24,13 +24,13 @@ public class SprayControl extends BaseDateEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
-    @Column(name = "hora")
+    @Column(name = "hora_realización")
     private LocalTime inputTime;
 
-    @Column(name = "tipo_proceso")
+    @Column(name = "proceso_tipo")
     private String processType;
 
     @Column(name = "alimentación_proceso")

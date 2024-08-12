@@ -13,7 +13,7 @@ import java.time.LocalTime;
 public class SprayControlDto {
     private LocalDate inputDate;
     private LocalTime inputTime;
-    private String processOrigin;
-    private String processDescription;
-    private String processDestination;
+    private String processType;
+    private String feedOrigin;
+    private String productDestination;
 }

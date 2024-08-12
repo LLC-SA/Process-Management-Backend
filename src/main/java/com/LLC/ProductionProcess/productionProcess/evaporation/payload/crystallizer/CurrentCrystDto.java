@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CrystDto {
+public class CurrentCrystDto {
     private Long id;
     private Integer batchNumber;
     private String crystallizerNumber;

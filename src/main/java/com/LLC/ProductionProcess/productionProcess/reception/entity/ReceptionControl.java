@@ -17,32 +17,31 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @Entity
 @Table(name = "recepción_materia_prima")
-public class ReceptionProcess extends BaseDateEntity {
+public class ReceptionControl extends BaseDateEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "fecha")
+    @Column(name = "fecha_ingreso")
     private LocalDate inputDate;
 
-    // TRUCK
     @Column(name = "proveedor")
     private String supplier;
 
-    @Column(name = "remito")
+    @Column(name = "remito_proveedor")
     private Integer dispatchNumber;
 
-    @Column(name = "transporte")
+    @Column(name = "empresa_transporte")
     private String shipmentCompany;
 
-    @Column(name = "chofer")
+    @Column(name = "chofer_transporte")
     private String trucker;
 
-    @Column(name = "patente")
+    @Column(name = "patente_camión")
     private String truckPatent;
 
-    @Column(name = "hora_llegada")
+    @Column(name = "hora_ingreso")
     private LocalTime arrivedTime;
 
     @Column(name = "precintos")
@@ -51,12 +50,10 @@ public class ReceptionProcess extends BaseDateEntity {
     @Column(name = "limpieza")
     private Boolean isCleaned;
 
-    // VOLUME
     @Column(name = "volumen_descargado")
     private Integer dischargedVolume;
 
-    // RAW MATERIAL
-    @Column(name = "tipo_producto")
+    @Column(name = "producto_tipo")
     private String productType;
 
     @Column(name = "concentración")
@@ -80,14 +77,13 @@ public class ReceptionProcess extends BaseDateEntity {
     @Column(name = "peróxidos")
     private Integer peroxideValue;
 
-    @Column(name = "silo_destino")
+    @Column(name = "destino_producto")
     private String siloDestination;
 
-    // OTHERS
     @Column(name = "observación")
     private String observations;
 
-    public ReceptionProcess(@NotNull String createdBy, LocalDate inputDate, String supplier, Integer dispatchNumber,
+    public ReceptionControl(@NotNull String createdBy, LocalDate inputDate, String supplier, Integer dispatchNumber,
                             String shipmentCompany, String trucker, String truckPatent,
                             LocalTime arrivedTime, Boolean hasSeals, Boolean isCleaned,
                             Integer dischargedVolume, String productType, Double concentration,
